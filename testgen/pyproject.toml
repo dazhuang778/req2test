@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "testgen"
+version = "0.1.0"
+description = "从 MD 需求文档自动生成测试用例的 CLI 工具"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.0.0",
+    "pydantic>=2.0.0",
+    "openpyxl>=3.1.0",
+    "click>=8.1.0",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+testgen = "testgen.__main__:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["testgen*"]
